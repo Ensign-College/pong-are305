@@ -238,13 +238,17 @@ function love.update(dt)
     end
 
     -- player 2
-    if love.keyboard.isDown('up') then
-        player2.dy = -PADDLE_SPEED
-    elseif love.keyboard.isDown('down') then
-        player2.dy = PADDLE_SPEED
-    else
-        player2.dy = 0
-    end
+    --AI
+    player2.y=ball.y
+    player2.dy = PADDLE_SPEED
+    --Traditional
+    -- if love.keyboard.isDown('up') then
+    --    player2.dy = -PADDLE_SPEED
+    -- elseif love.keyboard.isDown('down') then
+    --    player2.dy = PADDLE_SPEED
+    -- else
+    --    player2.dy = 0
+    -- end
 
     -- update our ball based on its DX and DY only if we're in play state;
     -- scale the velocity by dt so movement is framerate-independent
@@ -364,3 +368,4 @@ function displayFPS()
     love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
     love.graphics.setColor(255, 255, 255, 255)
 end
+
